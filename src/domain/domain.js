@@ -1,1 +1,1 @@
-export { default as SolarNodeImageInfo } from "./solarNodeImageInfo";
+export { default as SolarNodeImageInfo } from "./SolarNodeImageInfo";

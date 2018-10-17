@@ -2,7 +2,7 @@
 
 import test from "ava";
 
-import SolarNodeImageInfo from "domain/solarNodeImageInfo";
+import SolarNodeImageInfo from "domain/SolarNodeImageInfo";
 
 test("domain:solarNodeImageInfo:create:empty", t => {
   const obj = new SolarNodeImageInfo();
