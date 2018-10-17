@@ -1,6 +1,6 @@
 import test from "ava";
 
-import { NimUrlHelper, NimPathKey } from "net/nimUrlHelperMixin";
+import { NimUrlHelper, NimPathKey } from "net/NimUrlHelperMixin";
 
 test("net:nimUrlHelperMixin:create", t => {
   const helper = new NimUrlHelper();
