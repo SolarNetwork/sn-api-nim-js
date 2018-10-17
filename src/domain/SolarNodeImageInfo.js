@@ -94,6 +94,23 @@ class SolarNodeImageInfo {
     }
     return new SolarNodeImageInfo(...args);
   }
+
+  /**
+   * Compare two `SolarNodeImageInfo` objects based on their IDs.
+   *
+   * The `id` values are compared in a case-insensitive manner, using a natural number ordering.
+   *
+   * @param {SolarNodeImageInfo} l the left-hand object to compare
+   * @param {SolarNodeImageInfo} r the right-hand object to compare
+   */
+  static compareById(l, r) {
+    const lId = l ? l.id : "";
+    const rId = r ? r.id : "";
+    return lId.localeCompare(rId, undefined, {
+      sensitivity: "base",
+      numeric: true
+    });
+  }
 }
 
 export default SolarNodeImageInfo;

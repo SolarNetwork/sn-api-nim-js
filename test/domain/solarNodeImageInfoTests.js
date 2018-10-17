@@ -27,9 +27,9 @@ test("domain:solarNodeImageInfo:mutate", t => {
 });
 
 test("domain:solarNodeImageInfo:fromJsonEncoding", t => {
-  const fs = require("fs");
-  const data = fs.readFileSync("./test/domain/list-base-images-01.json");
-  const json = JSON.parse(data);
+  const json = JSON.parse(
+    require("fs").readFileSync("./test/domain/list-base-images-01.json")
+  );
   const obj = SolarNodeImageInfo.fromJsonEncoding(json.data[0]);
   t.truthy(obj);
   t.is(obj.id, "solarnode-deb9-pi-1GB-20180814");
@@ -51,5 +51,30 @@ test("domain:solarNodeImageInfo:toJsonEncoding", t => {
   t.is(
     json,
     '{"id":"a","sha256":"b","contentLength":1,"uncompressedSha256":"c","uncompressedContentLength":2}'
+  );
+});
+
+test("domain:solarNodeImageInfo:compareById", t => {
+  const json = JSON.parse(
+    require("fs").readFileSync("./test/domain/list-base-images-01.json")
+  );
+  json.data.sort(SolarNodeImageInfo.compareById);
+  const ids = json.data.map(d => {
+    return d.id;
+  });
+  t.deepEqual(
+    ids,
+    [
+      "solarkiosk-deb9-pi-1GB-20180510",
+      "solarkiosk-DEB10-pi-1GB-20170510",
+      "solarkiosk-deb10-pi-1GB-20180510",
+      "solarnode-deb8-ebox3300mx-1GB-20171107",
+      "SOLARNODE-deb8-ebox3300mx-1GB-20171212",
+      "solarnode-deb8-pi-1GB-20171107",
+      "solarnode-deb8-pi-1GB-20171108",
+      "solarnode-deb9-pi-1GB-20180814",
+      "solarnode-deb9-pi-1GB-20181017"
+    ],
+    "IDs sorted case-insensitively, with natural numbers (9 before 10)"
   );
 });
