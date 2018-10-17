@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": "solarnode-deb9-pi-1GB-20180814",
+      "sha256": "812754afb3e490c588e33b0865fe4c203d5a26d3ee9c2dd9072de6a2de91c235",
+      "contentLength": 287363168,
+      "uncompressedSha256": "4d5867d96659c6dca078f05f054c6a40a67f18fa638d5c5d997d1da5480cdd2c",
+      "uncompressedContentLength": 998244352
+    },
+    {
+      "id": "solarnode-deb9-pi-1GB-20181017",
+      "sha256": "18efc284cbb5671738872fff39d3bbb3b54825fdcc111f62fbee43acc117450d",
+      "contentLength": 283282012,
+      "uncompressedSha256": "c9914e49454c355a607da0682581ce5397ca12c0c263eb5e8f2636bf88bbfab3",
+      "uncompressedContentLength": 998244352
+    }
+  ]
+}
