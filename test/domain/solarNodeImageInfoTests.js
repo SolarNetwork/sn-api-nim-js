@@ -78,3 +78,17 @@ test("domain:solarNodeImageInfo:compareById", t => {
     "IDs sorted case-insensitively, with natural numbers (9 before 10)"
   );
 });
+
+test("domain:solarNodeImageInfo:idComponentGroups", t => {
+  const json = JSON.parse(
+    require("fs").readFileSync("./test/domain/list-base-images-01.json")
+  );
+  const result = SolarNodeImageInfo.idComponentGroups(json.data);
+  const rawResult = JSON.parse(JSON.stringify(result));
+  t.deepEqual(
+    rawResult,
+    JSON.parse(
+      require("fs").readFileSync("./test/domain/id-component-groups-01.json")
+    )
+  );
+});
