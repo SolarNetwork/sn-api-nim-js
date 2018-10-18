@@ -20,13 +20,7 @@ class SolarNodeImageInfo {
    * @param {string} uncompressedSha256 a hex-encoded SHA-256 digest of the image contents when uncompressed
    * @param {number} uncompressedContentLength the size of the image contents when uncompressed, in bytes
    */
-  constructor(
-    id,
-    sha256,
-    contentLength,
-    uncompressedSha256,
-    uncompressedContentLength
-  ) {
+  constructor(id, sha256, contentLength, uncompressedSha256, uncompressedContentLength) {
     /**
      * A unique identifier for this image.
      *
@@ -160,10 +154,7 @@ class SolarNodeImageInfo {
             .toLowerCase();
           let parentGroup = getGroup(componentId);
           if (!parentGroup) {
-            parentGroup = new SolarNodeImageGroup(
-              componentId,
-              groupIdComponents[j]
-            );
+            parentGroup = new SolarNodeImageGroup(componentId, groupIdComponents[j]);
             groupMap[componentId] = parentGroup;
             if (group !== undefined) {
               group.addGroup(parentGroup);
