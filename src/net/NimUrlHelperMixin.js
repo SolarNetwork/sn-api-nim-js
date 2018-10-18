@@ -101,7 +101,7 @@ const NimUrlHelperMixin = superclass =>
      *
      * @returns {string} the URL
      */
-    authorizeSessionUrl() {
+    authorizeImageSessionUrl() {
       return this.baseUrl() + "/images/authorize";
     }
 

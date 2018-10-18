@@ -43,10 +43,10 @@ test("net:nimUrlHelperMixin:pingUrl", t => {
   );
 });
 
-test("net:nimUrlHelperMixin:authorizeSessionUrl", t => {
+test("net:nimUrlHelperMixin:authorizeImageSessionUrl", t => {
   const helper = new NimUrlHelper();
   t.is(
-    helper.authorizeSessionUrl(),
+    helper.authorizeImageSessionUrl(),
     "https://apps.solarnetwork.net/solarnode-image-maker/api/v1/images/authorize"
   );
 });
