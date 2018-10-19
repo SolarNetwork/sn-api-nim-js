@@ -86,7 +86,7 @@ class SolarNodeImageInfo {
    * returns the right-most component. If that component has a date-like structure, the
    * date will be formatted slightly.
    *
-   * @returns the display name
+   * @returns {string} the display name
    */
   displayNameForComponent() {
     if (!this.id) {
