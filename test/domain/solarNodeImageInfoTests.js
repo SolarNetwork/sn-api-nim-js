@@ -69,6 +69,31 @@ test("domain:solarNodeImageInfo:compareById", t => {
   );
 });
 
+test("domain:solarNodeImageInfo:hasId:empty", t => {
+  const image = new SolarNodeImageInfo();
+  t.is(image.hasId(""), false);
+});
+
+test("domain:solarNodeImageInfo:hasId:emptyArg", t => {
+  const image = new SolarNodeImageInfo("foo");
+  t.is(image.hasId(), false);
+});
+
+test("domain:solarNodeImageInfo:hasId:no", t => {
+  const image = new SolarNodeImageInfo("foo");
+  t.is(image.hasId("bar"), false);
+});
+
+test("domain:solarNodeImageInfo:hasId:yes:exact", t => {
+  const image = new SolarNodeImageInfo("foo");
+  t.is(image.hasId("foo"), true);
+});
+
+test("domain:solarNodeImageInfo:hasId:yes:caseInsensitive", t => {
+  const image = new SolarNodeImageInfo("foo");
+  t.is(image.hasId("FoO"), true);
+});
+
 test("domain:solarNodeImageInfo:idComponentGroups", t => {
   const json = JSON.parse(require("fs").readFileSync("./test/domain/list-base-images-01.json"));
   const result = SolarNodeImageInfo.idComponentGroups(json.data);

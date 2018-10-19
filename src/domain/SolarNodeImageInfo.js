@@ -126,6 +126,21 @@ class SolarNodeImageInfo {
   }
 
   /**
+   * Compare an ID value with this object's ID value.
+   *
+   * This method performs a case-insensitive compare similar to {@link module:domain~SolarNodeImageInfo#compareById}.
+   *
+   * @param {string} id an ID value to compare
+   * @returns {boolean} `true` if `id` matches this object's `id`
+   */
+  hasId(id) {
+    if (this.id == undefined || id === undefined) {
+      return false;
+    }
+    return this.id.localeCompare(id, undefined, LOCALE_COMPARE_OPTIONS) === 0;
+  }
+
+  /**
    * Compare two `SolarNodeImageInfo` objects based on their IDs.
    *
    * The `id` values are compared in a case-insensitive manner, using a natural number ordering.
