@@ -2,10 +2,14 @@
 
 import SolarNodeImageGroup from "./SolarNodeImageGroup";
 
+/** A locale options object suitable for passing to `String.localeCompare()`. */
 const LOCALE_COMPARE_OPTIONS = Object.freeze({
   sensitivity: "base",
   numeric: true
 });
+
+/** A regexp that looks for 8 digits at the end of the string, assuming that is a YYYYMMDD date. */
+const DATE_LIKE_ENDING = /.*(\d{4})(\d{2})(\d{2})$/;
 
 /**
  * An immutable NIM image info object.
@@ -73,6 +77,31 @@ class SolarNodeImageInfo {
    */
   toJsonEncoding() {
     return JSON.stringify(this);
+  }
+
+  /**
+   * Get a display name based on the most specific component of this image's `id` value.
+   *
+   * The components of the `id` are based on splitting it on a `-` character. This method
+   * returns the right-most component. If that component has a date-like structure, the
+   * date will be formatted slightly.
+   *
+   * @returns the display name
+   */
+  displayNameForComponent() {
+    if (!this.id) {
+      return "";
+    }
+    const components = this.id.split("-");
+    if (components.length < 2) {
+      return this.id;
+    }
+    const name = components[components.length - 1];
+    const match = name.match(DATE_LIKE_ENDING);
+    if (match) {
+      return match[1] + "-" + match[2] + "-" + match[3];
+    }
+    return name;
   }
 
   /**

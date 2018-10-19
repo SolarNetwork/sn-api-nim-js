@@ -27,21 +27,13 @@ test("domain:solarNodeImageInfo:mutate", t => {
 });
 
 test("domain:solarNodeImageInfo:fromJsonEncoding", t => {
-  const json = JSON.parse(
-    require("fs").readFileSync("./test/domain/list-base-images-01.json")
-  );
+  const json = JSON.parse(require("fs").readFileSync("./test/domain/list-base-images-01.json"));
   const obj = SolarNodeImageInfo.fromJsonEncoding(json.data[0]);
   t.truthy(obj);
   t.is(obj.id, "solarnode-deb9-pi-1GB-20180814");
-  t.is(
-    obj.sha256,
-    "812754afb3e490c588e33b0865fe4c203d5a26d3ee9c2dd9072de6a2de91c235"
-  );
+  t.is(obj.sha256, "812754afb3e490c588e33b0865fe4c203d5a26d3ee9c2dd9072de6a2de91c235");
   t.is(obj.contentLength, 287363168);
-  t.is(
-    obj.uncompressedSha256,
-    "4d5867d96659c6dca078f05f054c6a40a67f18fa638d5c5d997d1da5480cdd2c"
-  );
+  t.is(obj.uncompressedSha256, "4d5867d96659c6dca078f05f054c6a40a67f18fa638d5c5d997d1da5480cdd2c");
   t.is(obj.uncompressedContentLength, 998244352);
 });
 
@@ -55,9 +47,7 @@ test("domain:solarNodeImageInfo:toJsonEncoding", t => {
 });
 
 test("domain:solarNodeImageInfo:compareById", t => {
-  const json = JSON.parse(
-    require("fs").readFileSync("./test/domain/list-base-images-01.json")
-  );
+  const json = JSON.parse(require("fs").readFileSync("./test/domain/list-base-images-01.json"));
   json.data.sort(SolarNodeImageInfo.compareById);
   const ids = json.data.map(d => {
     return d.id;
@@ -80,15 +70,36 @@ test("domain:solarNodeImageInfo:compareById", t => {
 });
 
 test("domain:solarNodeImageInfo:idComponentGroups", t => {
-  const json = JSON.parse(
-    require("fs").readFileSync("./test/domain/list-base-images-01.json")
-  );
+  const json = JSON.parse(require("fs").readFileSync("./test/domain/list-base-images-01.json"));
   const result = SolarNodeImageInfo.idComponentGroups(json.data);
   const rawResult = JSON.parse(JSON.stringify(result));
   t.deepEqual(
     rawResult,
-    JSON.parse(
-      require("fs").readFileSync("./test/domain/id-component-groups-01.json")
-    )
+    JSON.parse(require("fs").readFileSync("./test/domain/id-component-groups-01.json"))
   );
+});
+
+test("domain:solarNodeImageInfo:displayNameForComponent:empty", t => {
+  const image = new SolarNodeImageInfo();
+  t.is(image.displayNameForComponent(), "");
+});
+
+test("domain:solarNodeImageInfo:displayNameForComponent:singleComponent", t => {
+  const image = new SolarNodeImageInfo("foobar");
+  t.is(image.displayNameForComponent(), "foobar");
+});
+
+test("domain:solarNodeImageInfo:displayNameForComponent:multiComponents", t => {
+  const image = new SolarNodeImageInfo("foo-bar");
+  t.is(image.displayNameForComponent(), "bar");
+});
+
+test("domain:solarNodeImageInfo:displayNameForComponent:dateComponent", t => {
+  const image = new SolarNodeImageInfo("foo-bar-20181019");
+  t.is(image.displayNameForComponent(), "2018-10-19");
+});
+
+test("domain:solarNodeImageInfo:displayNameForComponent:dateComponent", t => {
+  const image = new SolarNodeImageInfo("foo-bar-20181019");
+  t.is(image.displayNameForComponent(), "2018-10-19");
 });
