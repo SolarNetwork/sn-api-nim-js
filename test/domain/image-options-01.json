@@ -1,0 +1,10 @@
+{
+  "verbose": true,
+  "parameters": {
+    "format": "raw"
+  },
+  "environment": {
+    "profile": "development",
+    "number": 42
+  }
+}
