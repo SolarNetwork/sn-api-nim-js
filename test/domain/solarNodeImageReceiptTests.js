@@ -4,7 +4,6 @@ import test from "ava";
 
 import SolarNodeImageReceipt from "domain/SolarNodeImageReceipt";
 import SolarNodeImageInfo from "domain/SolarNodeImageInfo";
-import { start } from "repl";
 
 test("domain:solarNodeImageReceipt:create:empty", t => {
   const obj = new SolarNodeImageReceipt();
