@@ -1,0 +1,11 @@
+{
+  "createdDate": 1534282936009,
+  "id": "a261cde3-de46-4cd9-b600-86b6bbf6e17a",
+  "baseImageId": "solarnode-deb9-pi-1GB-20180814",
+  "done": false,
+  "cancelled": false,
+  "startedDate": 1534282936011,
+  "percentComplete": 0.0,
+  "started": true,
+  "message": "Uncompressing source image"
+}

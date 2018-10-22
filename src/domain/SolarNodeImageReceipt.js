@@ -13,6 +13,8 @@ class SolarNodeImageReceipt {
    * @param {string} baseImageId the ID of the image that served as the starting point for this customized image
    * @param {Date} createdDate the date the task was created
    * @param {boolean} started flag indicating if the task has started executing
+   * @param {boolean} done flag indicating if the task has completed executing
+   * @param {boolean} cancelled flag indicating if the task was cancelled before executing completely
    * @param {number} percentComplete the amount of work that has been completed, as a fractional percentage between `0` and `1`
    * @param {string} message a status message
    * @param {Date} [startedDate] the date the customization task started executing
@@ -26,6 +28,8 @@ class SolarNodeImageReceipt {
     baseImageId,
     createdDate,
     started,
+    done,
+    cancelled,
     percentComplete,
     message,
     startedDate,
@@ -64,6 +68,22 @@ class SolarNodeImageReceipt {
      * @readonly
      */
     this.started = started;
+
+    /**
+     * A flag indicating if the task has completed executing.
+     *
+     * @type {boolean}
+     * @readonly
+     */
+    this.done = done;
+
+    /**
+     * A flag indicating if the task task was cancelled before executing completely.
+     *
+     * @type {boolean}
+     * @readonly
+     */
+    this.cancelled = cancelled;
 
     /**
      * The amount of work that has been completed, as a fractional percentage between `0` and `1`.
@@ -124,7 +144,17 @@ class SolarNodeImageReceipt {
    * @return {string} the JSON encoded string
    */
   toJsonEncoding() {
-    return JSON.stringify(this);
+    var d = Object.assign({}, this);
+    if (this.createdDate) {
+      d.createdDate = this.createdDate.getTime();
+    }
+    if (this.startedDate) {
+      d.startedDate = this.startedDate.getTime();
+    }
+    if (this.completedDate) {
+      d.completedDate = this.completedDate.getTime();
+    }
+    return JSON.stringify(d);
   }
 
   /**
@@ -143,6 +173,8 @@ class SolarNodeImageReceipt {
       args.push(obj.baseImageId || "");
       args.push(obj.createdDate ? new Date(obj.createdDate) : null);
       args.push(!!obj.started);
+      args.push(!!obj.done);
+      args.push(!!obj.cancelled);
       args.push(obj.percentComplete || 0);
       args.push(obj.message || "");
       args.push(obj.startedDate ? new Date(obj.startedDate) : null);
