@@ -9,10 +9,7 @@ test("net:nimUrlHelperMixin:create", t => {
 
 test("net:nimUrlHelperMixin:baseUrl", t => {
   const helper = new NimUrlHelper();
-  t.is(
-    helper.baseUrl(),
-    "https://apps.solarnetwork.net/solarnode-image-maker/api/v1"
-  );
+  t.is(helper.baseUrl(), "https://apps.solarnetwork.net/solarnode-image-maker/api/v1");
 });
 
 test("net:nimUrlHelperMixin:baseUrl:customEnvironment", t => {
@@ -22,6 +19,15 @@ test("net:nimUrlHelperMixin:baseUrl:customEnvironment", t => {
   env["port"] = 443;
   const helper = new NimUrlHelper(env);
   t.is(helper.baseUrl(), "https://nim.example.com/foonim/api/v1");
+});
+
+test("net:nimUrlHelperMixin:baseUrl:blankNimPath", t => {
+  const env = {};
+  env[NimPathKey] = "";
+  env["host"] = "nim.example.com";
+  env["port"] = 443;
+  const helper = new NimUrlHelper(env);
+  t.is(helper.baseUrl(), "https://nim.example.com/api/v1");
 });
 
 test("net:nimUrlHelperMixin:sessionKey:none", t => {
@@ -37,10 +43,7 @@ test("net:nimUrlHelperMixin:sessionKey:accessors", t => {
 
 test("net:nimUrlHelperMixin:pingUrl", t => {
   const helper = new NimUrlHelper();
-  t.is(
-    helper.pingUrl(),
-    "https://apps.solarnetwork.net/solarnode-image-maker/api/v1/ping"
-  );
+  t.is(helper.pingUrl(), "https://apps.solarnetwork.net/solarnode-image-maker/api/v1/ping");
 });
 
 test("net:nimUrlHelperMixin:authorizeImageSessionUrl", t => {
