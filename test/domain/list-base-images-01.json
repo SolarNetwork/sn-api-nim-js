@@ -1,0 +1,68 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": "solarnode-deb9-pi-1GB-20180814",
+      "sha256": "812754afb3e490c588e33b0865fe4c203d5a26d3ee9c2dd9072de6a2de91c235",
+      "contentLength": 287363168,
+      "uncompressedSha256": "4d5867d96659c6dca078f05f054c6a40a67f18fa638d5c5d997d1da5480cdd2c",
+      "uncompressedContentLength": 998244352
+    },
+    {
+      "id": "solarnode-deb9-pi-1GB-20181017",
+      "sha256": "18efc284cbb5671738872fff39d3bbb3b54825fdcc111f62fbee43acc117450d",
+      "contentLength": 283282012,
+      "uncompressedSha256": "c9914e49454c355a607da0682581ce5397ca12c0c263eb5e8f2636bf88bbfab3",
+      "uncompressedContentLength": 998244352
+    },
+    {
+      "id": "solarkiosk-deb10-pi-1GB-20180510",
+      "sha256": "681d386ca951508dbdbb7e15b60f2c46a21bef35a9658cbf97ddf8e43159b073",
+      "contentLength": 385315772,
+      "uncompressedSha256": "38d1b85d7e0dabad1f2a6453daf23f783ecc90f5cd05dac902f68ca42d1df272",
+      "uncompressedContentLength": 1992294400
+    },
+    {
+      "id": "solarkiosk-DEB10-pi-1GB-20170510",
+      "sha256": "681d386ca951508dbdbb7e15b60f2c46a21bef35a9658cbf97ddf8e43159b073",
+      "contentLength": 385315772,
+      "uncompressedSha256": "38d1b85d7e0dabad1f2a6453daf23f783ecc90f5cd05dac902f68ca42d1df272",
+      "uncompressedContentLength": 1992294400
+    },
+    {
+      "id": "solarkiosk-deb9-pi-1GB-20180510",
+      "sha256": "e50df8a826a83bee89c2e1edf485bc5e94fd9a5b83794d6801c00f898053f327",
+      "contentLength": 179652944,
+      "uncompressedSha256": "6a4ad4c8a8f7eb89e83cae41f6ddb0ed855f1ca5a2a94ff1e14e7c2159812165",
+      "uncompressedContentLength": 998244352
+    },
+    {
+      "id": "solarnode-deb8-ebox3300mx-1GB-20171107",
+      "sha256": "975a531da2490c7f333b59e3081fc3d8b8459b5d8b0fd6db0c765bad5851c9ae",
+      "contentLength": 250946240,
+      "uncompressedSha256": "c4963ac2f0658791293ba6c837fb32ab96c191c3932e4eae33fedfefc03ed8bd",
+      "uncompressedContentLength": 1000341504
+    },
+    {
+      "id": "SOLARNODE-deb8-ebox3300mx-1GB-20171212",
+      "sha256": "6d761da07a502ffd8f692d6fc6434245acb1240993199af9f40b0d75117094c2",
+      "contentLength": 251437556,
+      "uncompressedSha256": "faaeb263f1aa0a7d9f3d8e7d0710c326f00398e71994b40128f07a1a3785e3b9",
+      "uncompressedContentLength": 1000341504
+    },
+    {
+      "id": "solarnode-deb8-pi-1GB-20171107",
+      "sha256": "f55086a2d777d32596585e5fe97c4de857b321ed6e344d762b3d5ec28b1abc16",
+      "contentLength": 278314976,
+      "uncompressedSha256": "5d106273de8662958b8420c938c4753fe8437ddb230b6e0ce06f2e39a5a4c5da",
+      "uncompressedContentLength": 998244352
+    },
+    {
+      "id": "solarnode-deb8-pi-1GB-20171108",
+      "sha256": "c7a748686582740009763a03f81cdb7294f6265df1381a8af97bcb4ee2e32da1",
+      "contentLength": 278352196,
+      "uncompressedSha256": "6ec67327d9982d5ae1f21e2a453035de5c86af7a7bf326fe65a513bee9627b3c",
+      "uncompressedContentLength": 998244352
+    }
+  ]
+}

@@ -1,10 +1,6 @@
 /** @module net */
 
-import {
-  Environment,
-  UrlHelper,
-  UserUrlHelperMixin
-} from "solarnetwork-api-core";
+import { Environment, UrlHelper, UserUrlHelperMixin } from "solarnetwork-api-core";
 
 /** The NIM default path. */
 export const NimDefaultPath = "/solarnode-image-maker";
@@ -67,7 +63,8 @@ const NimUrlHelperMixin = superclass =>
      * @returns {string} the base URL to NIM
      */
     baseUrl() {
-      const path = this.env(NimPathKey) || NimDefaultPath;
+      const nimPath = this.env(NimPathKey);
+      const path = nimPath !== undefined ? nimPath : NimDefaultPath;
       return this.hostUrl() + path + NimApiPathV1;
     }
 
@@ -101,7 +98,7 @@ const NimUrlHelperMixin = superclass =>
      *
      * @returns {string} the URL
      */
-    authorizeSessionUrl() {
+    authorizeImageSessionUrl() {
       return this.baseUrl() + "/images/authorize";
     }
 
@@ -160,11 +157,7 @@ const NimUrlHelperMixin = superclass =>
     downloadImageUrl(receiptId, sessionKey) {
       const key = sessionKey || this.nimSessionKey;
       return (
-        this.baseUrl() +
-        "/images/" +
-        encodeURIComponent(receiptId) +
-        "/" +
-        encodeURIComponent(key)
+        this.baseUrl() + "/images/" + encodeURIComponent(receiptId) + "/" + encodeURIComponent(key)
       );
     }
   };
