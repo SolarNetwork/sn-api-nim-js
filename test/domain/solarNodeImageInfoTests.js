@@ -123,8 +123,3 @@ test("domain:solarNodeImageInfo:displayNameForComponent:dateComponent", t => {
   const image = new SolarNodeImageInfo("foo-bar-20181019");
   t.is(image.displayNameForComponent(), "2018-10-19");
 });
-
-test("domain:solarNodeImageInfo:displayNameForComponent:dateComponent", t => {
-  const image = new SolarNodeImageInfo("foo-bar-20181019");
-  t.is(image.displayNameForComponent(), "2018-10-19");
-});
