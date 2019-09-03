@@ -1,6 +1,6 @@
 {
   "name": "solarnetwork-api-nim",
-  "version": "1.0.2",
+  "version": "1.0.3-dev.0",
   "description": "SolarNetwork Node Image Maker (NIM) API",
   "keywords": [
     "solarnetwork"
