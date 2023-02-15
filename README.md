@@ -2,6 +2,10 @@
 
 This project contains JavaScript code to help access [SolarNode Image Maker (NIM)][nim].
 
+> :warning: This project is no longer maintained. Instead, check out the 
+> [SolarNodeOS tools](https://github.com/SolarNetwork/solarnode-os-images/tree/master/debian) that
+> make it easy to generate custom SolarNodeOS images
+
 # Building
 
 The build uses [NPM][npm] or [yarn][yarn]. First, initialize the dependencies:
